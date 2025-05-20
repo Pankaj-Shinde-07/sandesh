@@ -1,0 +1,226 @@
+import { useState } from "react";
+import { Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+const Index = () => {
+  const [activeSection, setActiveSection] = useState("about");
+  return <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border-b">
+        <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between">
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tighter">OM DEORE</h1>
+          <nav className="flex gap-6 mt-4 md:mt-0">
+            <button onClick={() => setActiveSection("about")} className={transition-colors ${activeSection === "about" ? "text-blue-600 dark:text-blue-400" : "hover:text-blue-600 dark:hover:text-blue-400"}}>
+              About
+            </button>
+            <button onClick={() => setActiveSection("projects")} className={transition-colors ${activeSection === "projects" ? "text-blue-600 dark:text-blue-400" : "hover:text-blue-600 dark:hover:text-blue-400"}}>
+              Projects
+            </button>
+            <button onClick={() => setActiveSection("education")} className={transition-colors ${activeSection === "education" ? "text-blue-600 dark:text-blue-400" : "hover:text-blue-600 dark:hover:text-blue-400"}}>
+              Education
+            </button>
+            <button onClick={() => setActiveSection("contact")} className={transition-colors ${activeSection === "contact" ? "text-blue-600 dark:text-blue-400" : "hover:text-blue-600 dark:hover:text-blue-400"}}>
+              Contact
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center gap-8">
+        <div className="w-full md:w-1/2">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Hello, I'm Om Deore</h2>
+          <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 mb-6">Web Developer ,  passionate about building user-friendly digital experiences</p>
+          <p className="text-lg md:text-xl font-medium text-blue-600 dark:text-blue-400 mb-8"># I Love To Code #</p>
+          <div className="flex gap-4">
+            <Button onClick={() => setActiveSection("contact")}>Contact Me</Button>
+            <Button variant="outline" onClick={() => setActiveSection("projects")}>View Projects</Button>
+          </div>
+        </div>
+        <div className="w-full md:w-1/2 flex justify-center md:justify-end">
+          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-lg">
+            <img src="/lovable-uploads/d3f48755-1ce1-42c8-865d-0f34218cc608.png" alt="Om Deore" className="w-full h-full object-cover" />
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <main className="container mx-auto px-4 py-12">
+        {/* About Section */}
+        <section className={${activeSection === "about" ? "block" : "hidden"} space-y-12}>
+          <div>
+            <h2 className="text-3xl font-bold mb-6 border-b pb-2">About Me</h2>
+            <p className="text-lg">
+              I'm a web developer passionate about building user-friendly digital experiences. 
+              I specialize in front-end development using HTML, CSS, and JavaScript.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-3xl font-bold mb-6 border-b pb-2">Skills</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {["C", "Python", "HTML", "CSS"].map(skill => <Card key={skill} className="hover:shadow-md transition-shadow">
+                  <CardContent className="p-6 flex items-center justify-center">
+                    <span className="text-lg font-medium">{skill}</span>
+                  </CardContent>
+                </Card>)}
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-3xl font-bold mb-6 border-b pb-2">Achievements</h2>
+            <ul className="list-disc pl-6 space-y-2">
+              <li className="text-lg">NMMS Scholar</li>
+              <li className="text-lg">MTSE Scholar</li>
+              <li className="text-lg">Math and Science Olympiad Gold Medalist</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-3xl font-bold mb-6 border-b pb-2">Hobbies</h2>
+            <ul className="list-disc pl-6 space-y-2">
+              <li className="text-lg">Playing Cricket, Chess, Free Fire</li>
+              <li className="text-lg">Watching Movies, Anime</li>
+              <li className="text-lg">Reading, Solving Mathematical Problems</li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Projects Section */}
+        <section className={${activeSection === "projects" ? "block" : "hidden"}}>
+          <h2 className="text-3xl font-bold mb-6 border-b pb-2">Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-3">Library Management System</h3>
+                <p className="text-slate-600 dark:text-slate-400 mb-4">
+                  A comprehensive library management system built using Linux.
+                </p>
+                <div className="flex justify-end">
+                  
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-3">Salon Slot Booking Website</h3>
+                <p className="text-slate-600 dark:text-slate-400 mb-4">A salon slot booking  website built using HTML and CSS.</p>
+                <div className="flex justify-end">
+                  
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* Education Section */}
+        <section className={${activeSection === "education" ? "block" : "hidden"}}>
+          <h2 className="text-3xl font-bold mb-6 border-b pb-2">Education</h2>
+          <div className="space-y-6">
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold">Bachelor in Engineering (CE)</h3>
+                <p className="text-lg text-slate-600 dark:text-slate-400">8.5 CGPA (Sem 1)</p>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold">MHT-CET</h3>
+                <p className="text-lg text-slate-600 dark:text-slate-400">95 Percentile</p>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold">10th Class</h3>
+                <p className="text-lg text-slate-600 dark:text-slate-400">92%</p>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section className={${activeSection === "contact" ? "block" : "hidden"}}>
+          <h2 className="text-3xl font-bold mb-6 border-b pb-2">Contact Me</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card>
+              <CardContent className="p-6">
+                <div className="flex flex-col space-y-4">
+                  <div className="flex items-center gap-3">
+                    <Phone className="h-5 w-5 text-blue-600" />
+                    <span className="text-lg">9860132650</span>
+                  </div>
+                  
+                  <div className="flex items-center gap-3">
+                    <Mail className="h-5 w-5 text-blue-600" />
+                    <span className="text-lg">omdeore424@gmail.com</span>
+                  </div>
+                  
+                  <div className="flex items-center gap-3">
+                    <Linkedin className="h-5 w-5 text-blue-600" />
+                    <a href="https://www.linkedin.com/in/om-deore-25445a32a/" target="_blank" rel="noopener noreferrer" className="text-lg text-blue-600 hover:underline">
+                      LinkedIn Profile
+                    </a>
+                  </div>
+                  
+                  <div className="flex items-center gap-3">
+                    
+                    <span className="text-lg">
+                  </span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-4">Send Me a Message</h3>
+                <form className="space-y-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium mb-1">Name</label>
+                    <input type="text" id="name" className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium mb-1">Email</label>
+                    <input type="email" id="email" className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium mb-1">Message</label>
+                    <textarea id="message" rows={4} className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                  </div>
+                  
+                  <Button className="w-full">Send Message</Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-slate-800 text-white py-8">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <p className="text-lg mb-2">Made with ❤ by Om Deore</p>
+            <div className="flex justify-center gap-4 mt-4">
+              <a href="mailto:omdeore424@gmail.com" className="hover:text-blue-400 transition-colors">
+                <Mail className="h-6 w-6" />
+              </a>
+              <a href="https://www.linkedin.com/in/om-deore-25445a32a/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">
+                <Linkedin className="h-6 w-6" />
+              </a>
+              <a href="#" className="hover:text-blue-400 transition-colors">
+                
+              </a>
+            </div>
+            
+          </div>
+        </div>
+      </footer>
+    </div>;
+};
+export default Index;
